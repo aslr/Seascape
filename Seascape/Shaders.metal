@@ -1,6 +1,6 @@
 //
 //  Shaders.metal
-//  Smiley
+//  Seascape
 //
 //  Created by João Varela on 05/08/2018.
 //  Copyright © 2018 João Varela. All rights reserved.

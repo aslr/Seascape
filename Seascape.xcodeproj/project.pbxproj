@@ -281,14 +281,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = U57H83X6M8;
-				INFOPLIST_FILE = Smiley/Info.plist;
+				INFOPLIST_FILE = Seascape/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.macscheduler.Seascape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Smiley/ShaderTypes.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Seascape/ShaderTypes.h;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -301,14 +301,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = U57H83X6M8;
-				INFOPLIST_FILE = Smiley/Info.plist;
+				INFOPLIST_FILE = Seascape/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.macscheduler.Seascape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Smiley/ShaderTypes.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Seascape/ShaderTypes.h;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
