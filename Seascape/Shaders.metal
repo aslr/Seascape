@@ -8,6 +8,8 @@
  * Contact: tdmaav@gmail.com
  */
 //
+//  Original code available at: https://www.shadertoy.com/view/Ms2SD1
+//
 //  Created by João Varela on 05/08/2018.
 //  Adaptation to Metal by João Varela, 2018 - Same license as above
 //
