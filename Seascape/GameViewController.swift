@@ -44,4 +44,12 @@ class GameViewController: NSViewController {
         renderer.mtkView(mtkView, drawableSizeWillChange: mtkView.drawableSize)
         mtkView.delegate = renderer
     }
+    
+    override func mouseDown(with event: NSEvent) {
+        let viewCoordinates = view.convert(event.locationInWindow, from: nil)
+        let mouse = view.convertToLayer(viewCoordinates)
+        let scale = view.layer!.contentsScale
+        renderer.mouse.x = mouse.x * scale
+        renderer.mouse.y = mouse.y * scale
+    }
 }
