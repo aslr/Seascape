@@ -24,6 +24,39 @@
 
 using namespace metal;
 
+// render background texture
+typedef struct
+{
+    packed_float2 position;
+    packed_float2 texCoords;
+} VertexIn;
+
+typedef struct {
+    float4 position [[position]];
+    float2 texCoords;
+} FragmentVertex;
+
+// draws the full screen quad
+vertex FragmentVertex fullscreen_vertex_func(device VertexIn *vertexArray [[buffer(0)]],
+                                             uint vertexIndex [[vertex_id]])
+{
+    FragmentVertex out;
+    out.position = float4(vertexArray[vertexIndex].position, 0, 1);
+    out.texCoords = vertexArray[vertexIndex].texCoords;
+    return out;
+}
+
+// colors the full screen quad
+fragment half4 fullscreen_fragment_func(FragmentVertex in [[stage_in]],
+                                        texture2d<half, access::read> screenTexture [[texture(0)]])
+{
+    // get the x,y coordinates of the texture grid
+    ushort2 inCoord = ushort2(in.position.xy);
+    // read the value of the grid cell
+    half4 color = screenTexture.read(inCoord);
+    return color;
+}
+
 constant int NUM_STEPS  = 8;
 constant float PI       = 3.141592;
 // #define EPSILON_NRM (0.1 / iResolution.x)
