@@ -201,7 +201,7 @@ kernel void compute(texture2d<float,access::write> output [[texture(0)]],
     // Seascape custom code -- begin
     uv = uv * 2. - 1.;
     uv.x *= iResolution.x/iResolution.y;
-    float time = iTime * .3 + iMouse.x * .01;
+    float time = iTime * .3 + iMouse.x * .2;
     
     // ray
     float3 ang = float3(sin(time*3.)*.1,sin(time)*.2+.3,time);

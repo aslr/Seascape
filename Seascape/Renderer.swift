@@ -50,7 +50,7 @@ class Renderer: NSObject, MTKViewDelegate
         do {
             if let kernel = library.makeFunction(name: "compute")
             {
-                self.inputBuffer = device.makeBuffer(length: MemoryLayout<float4>.size, options: [])
+                self.inputBuffer = device.makeBuffer(length: MemoryLayout<SIMD4<Float>>.size, options: [])
                 return try device.makeComputePipelineState(function: kernel)
             }
             else
@@ -71,11 +71,12 @@ class Renderer: NSObject, MTKViewDelegate
     // ---------------------------------------------------------------------------------
     func draw(in view: MTKView)
     {
+        time += timeStep
+        let inputBufferPtr = inputBuffer.contents().bindMemory(to: SIMD4<Float>.self, capacity: 1)
+        inputBufferPtr.pointee = SIMD4<Float>(Float(mouse.x),Float(mouse.y),0.0,time)
+        
         if let drawable = view.currentDrawable
         {
-            time += timeStep
-            let inputBufferPtr = inputBuffer.contents().bindMemory(to: float4.self, capacity: 1)
-            inputBufferPtr.pointee = float4(Float(mouse.x),Float(mouse.y),0.0,time)
             guard let commandBuffer = commandQueue.makeCommandBuffer() else { return }
             guard let commandEncoder = commandBuffer.makeComputeCommandEncoder() else { return }
             commandEncoder.setComputePipelineState(pipelineState)
